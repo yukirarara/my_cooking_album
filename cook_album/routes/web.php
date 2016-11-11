@@ -12,5 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index/index');
+});
+
+Route::group(['prefix' => 'recipe'], function() {
+    Route::get('post', 'RecipeController@post');
+    Route::get('create', 'RecipeController@create');
 });
