@@ -1,0 +1,10 @@
+{% extends 'layout.twig' %}
+{% block content %}
+<h1>レシピを書いてね</h1>
+<form action="recipe/create">
+    <h3>レシピのタイトル</h3>
+    <input type="text">
+    <br>
+    <input type="submit" value="材料・作り方の入力をするんだぴょん">
+</form>
+{% endblock content %}
