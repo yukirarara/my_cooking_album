@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Models\Kc\RecipeModel;
 
 class RecipeController extends Controller
 {
@@ -34,6 +35,8 @@ class RecipeController extends Controller
      */
     public function create()
     {
+        
+        //RecipeModel->addrecipe();
         return view('recipe/create');
     }
 }
