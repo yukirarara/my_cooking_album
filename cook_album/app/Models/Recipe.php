@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\Modeli as Model;
+use Illuminate\Database\Eloquent\Model as Model;
 
 class Recipe extends Model
 {
@@ -15,15 +15,17 @@ class Recipe extends Model
     }
 
     /**
-     * レシピを追加する
+     * レシピを投稿する
 　　 * 
      * @param $user_id
-     * @return $recipe_id
+     * @return 投稿したレシピのID
      */    
-    public function addRecipe(string $recipe_name, integer $user_id)
+    public static function getNewRecipeId($recipe_name)
     {
-       $this->user_id = $user_id;
-       $this->recipe_name = $recipe_name;
-       $this->save();       
+       $recipe = new Recipe;
+       $recipe->recipe_name = $recipe_name;
+       $recipe->save();
+       
+       return $recipe->id;         
     }
 }

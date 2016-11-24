@@ -15,7 +15,11 @@ Route::get('/', function () {
     return view('index/index');
 });
 
-Route::group(['prefix' => 'recipe'], function() {
-    Route::get('post', 'RecipeController@post');
-    Route::get('create', 'RecipeController@create');
+Route::group(['namespace' => 'Recipe'], function() {
+    Route::get('recipe/post', 'RecipeController@post');
+    Route::get('recipe/{id}', 'RecipeController@create');
+});
+
+Route::group(['namespace' => 'Ajax'], function () {
+    Route::post('/post/getPostRecipeId', 'AjaxPostController@getPostRecipeId');
 });
