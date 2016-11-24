@@ -179,6 +179,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         
         TwigBridge\ServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
     ],
 
     /*
@@ -228,6 +229,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         
         'Twig' => TwigBridge\Facade\Twig::class,
+        'Debugbar'  => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];
