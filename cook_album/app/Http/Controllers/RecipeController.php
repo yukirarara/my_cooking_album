@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use View;
 use App\Http\Requests;
-use App\Models\RecipeModel;
+use App\Models\Kc\RecipeModel;
 
 class RecipeController extends Controller
 {
@@ -16,7 +15,7 @@ class RecipeController extends Controller
      */
     public function post()
     {
-        return view('recipe/post', ['new_recipe_id' => 1]);
+        return view('recipe/post');
     }
  
     /**
@@ -25,7 +24,19 @@ class RecipeController extends Controller
      */
     public function index()
     {
-       return view('recipe/index');
+       
+
+
     }
 
+    /**
+     * 仮
+     *
+     */
+    public function create()
+    {
+        
+        //RecipeModel->addrecipe();
+        return view('recipe/create');
+    }
 }
