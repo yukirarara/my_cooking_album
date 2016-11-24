@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'recipe'], function() {
+    // レシピ名投稿ページ
     Route::get('post', 'RecipeController@post');
-    Route::get('create', 'RecipeController@create');
+    Route::post('ajax-recipe', 'AjaxRecipeController@post');
+    // レシピ編集ページ
+   // Route::get('{new_recipe_id}', 'RecipeController@index');
 });
