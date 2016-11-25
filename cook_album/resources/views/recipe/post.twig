@@ -2,11 +2,11 @@
 {% block content %}
 <script src="../js/recipe/post.js"></script>
 <h1>レシピを書いてね</h1>
-<form>
+<form action="/recipe/create">
     <h3>レシピのタイトル</h3>
-    <input type="text" id="recipe_field">
+    <input type="text" name="recipe_name" id="recipe_field">
     <br>
+    <input type="hidden" name="box" id="recipe_field">
     <input type="submit" id="recipe_submit" value="材料・作り方の入力をするんだぴょん"  disabled="disabled">
-<input type="hidden" name="_token" value="{{ csrf_token()}}">
 </form>
 {% endblock content %}

@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Recipe;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-use App\Models\Kc\RecipeModel;
+use App\Models\Recipe;
 
 class RecipeController extends Controller
 {
     /**
-     * レシピのタイトルページ
+     * レシピタイトルページ
      *
      */
     public function post()
@@ -19,11 +19,22 @@ class RecipeController extends Controller
     }
 
     /**
-     * レシピ記入ページを表示する
+     * レシピを登録する
      *
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('recipe/create');
+        $recipe_id = Recipe::getNewRecipeId($request->input('recipe_name'));
+
+        return redirect("recipe/$recipe_id");
+    }
+
+    /**
+     * レシピ編集ページ
+     *
+     */
+    public function edit()
+    {
+       return view('recipe/edit');
     }
 }

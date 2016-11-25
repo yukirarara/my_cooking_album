@@ -16,10 +16,11 @@ Route::get('/', function () {
 });
 
 Route::group(['namespace' => 'Recipe'], function() {
-    Route::get('recipe/post', 'RecipeController@post');
-    Route::get('recipe/{id}', 'RecipeController@create');
+    Route::get('/recipe/post', 'RecipeController@post');
+    Route::get('/recipe/create', 'RecipeController@create');
+    Route::get('/recipe/{id}', 'RecipeController@edit');
 });
 
 Route::group(['namespace' => 'Ajax'], function () {
-    Route::post('/post/getPostRecipeId', 'AjaxPostController@getPostRecipeId');
+    Route::post('/edit/saveCatchCopy', 'AjaxEditController@saveCatchCopy');
 });
