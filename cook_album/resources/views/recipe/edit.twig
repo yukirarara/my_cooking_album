@@ -1,0 +1,69 @@
+{% extends 'layout.twig' %}
+{% block content %}
+<script src="../js/recipe/create.js"></script>
+<input type="hidden" class="recipe_id_hidden" value={{ recipe_id }}>
+<div class="recipe_photo">
+<form method="post">
+    <input type="file">
+</form>
+</div>
+<div class="recipe_description">
+    <div class="recipe_description_button">
+        <p class="catch_copy_heading">レシピのキャッチコピーを入力しよう</p>
+        {{ form_start({"class" : "input_form", "style" : "display:none;"}) | raw}}
+            <p>あと60文字</p>
+            <textarea class="catch_copy_text"></textarea>
+            <button type="submit" class="catch_copy_save_button">保存</button>
+            <a class="input_form_close">取り消し</a>
+        {{ form_close() }}
+    </div>
+</div>
+<div class="recipe_ingredients">
+    <p>材料{{ recipe_id }}</p>
+    <div class="recipe_ingredients_list">
+        {{ form_start({"url" : "/edit/saveIngredients/" ~ recipe_id, "method" : "post", "class" : "save_ingredients"}) | raw}}
+            <div class="servings_field">
+                <input type="text" name="servings" class="servings_input" placeholder="何人分">
+                <span>(例) 2人分</span>
+            </div>
+            <div class="ingredients_list_header">
+                <span class="ingredients_name_title">材料・調味料</span>
+                <span class="ingredients_quantity_title">分量</span>
+            </div>
+            <div class="ingredients_list_field">
+                <div class="ingredients_list_row">
+                    <span>
+                        <input type="text" name="ingredients_name" class="ingredients_name_text">
+                    </span>
+                    <span>
+                        <input type="text" name="quantity" class="ingredients_quantity_text">
+                    </span>
+                    <a class="ingredients_delete" href="#"></a>
+                </div>
+                <div class="ingredients_list_row">
+                    <span>
+                        <input type="text" name="ingredients_name" class="ingredients_name">
+                    </span>
+                    <span>
+                        <input type="text" name="quantity" class="ingredients_quantity">
+                    </span>
+                    <a class="ingredients_delete" href="#"></a>
+                </div>
+            </div>
+            <div>
+                <input type="submit" class="ingredients_save_submit" value="保存して閉じる">
+            </div>
+        {{ form_close() }}
+    </div>
+</div>
+<div class="recipe_procedure">
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+</div>
+{% endblock content %}

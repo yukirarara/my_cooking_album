@@ -33,6 +33,6 @@ class CreateRecipeMsIngredientsTable extends Migration
      */
     public function down()
     {
-        Shema::dropifExists('recipe_ms_ingredients');
+        Schema::dropifExists('recipe_ms_ingredients');
     }
 }

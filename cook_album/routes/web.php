@@ -23,4 +23,5 @@ Route::group(['namespace' => 'Recipe'], function() {
 
 Route::group(['namespace' => 'Ajax'], function () {
     Route::post('/edit/saveCatchCopy', 'AjaxEditController@saveCatchCopy');
+    Route::post('/edit/saveIngredients/{recipe_id}', 'AjaxEditController@saveIngredients');
 });

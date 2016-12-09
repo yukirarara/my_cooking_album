@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Recipe;
 
+use Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Http\Requests;
 use App\Models\Recipe;
 
 class RecipeController extends Controller
 {
+
     /**
      * レシピタイトルページ
      *
@@ -22,19 +22,19 @@ class RecipeController extends Controller
      * レシピを登録する
      *
      */
-    public function create(Request $request)
+    public function create()
     {
-        $recipe_id = Recipe::getNewRecipeId($request->input('recipe_name'));
+        $recipe_id = Recipe::getNewRecipeId(Request::input('recipe_name'));
 
-        return redirect("recipe/$recipe_id");
+        return redirect("recipe/$recipe_id/");
     }
 
     /**
      * レシピ編集ページ
      *
      */
-    public function edit()
+    public function edit($recipe_id)
     {
-       return view('recipe/edit');
+        return view('recipe/edit', compact('recipe_id'));
     }
 }
