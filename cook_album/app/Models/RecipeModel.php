@@ -3,9 +3,8 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model as Model;
-use Debugbar;
 
-class Recipe extends Model
+class RecipeModel extends BaseModel
 {
     // レシピ番号
     private $recipe_id;
@@ -26,7 +25,7 @@ class Recipe extends Model
      */
     public static function getNewRecipeId($recipe_name)
     {
-        $recipe = new Recipe;
+        $recipe = new RecipeModel;
         $recipe->recipe_name = $recipe_name;
         $recipe->save();
 
